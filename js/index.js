@@ -19,13 +19,11 @@ refs.startBtn.addEventListener("click", startColorize);
 refs.stopBtn.addEventListener("click", stopColorize);
 
 function startColorize() {
-  timeId = setInterval(colorizeBody, 1000);
+  timeId = setInterval(() => {
+    const randomIndex = randomIntegerFromInterval(0, colors.length - 1);
+    document.body.style.backgroundColor = colors[randomIndex];
+  }, 1000);
   refs.startBtn.setAttribute("disabled", true);
-}
-
-function colorizeBody() {
-  const randomIndex = randomIntegerFromInterval(0, colors.length - 1);
-  document.body.style.backgroundColor = colors[randomIndex];
 }
 
 function stopColorize() {
